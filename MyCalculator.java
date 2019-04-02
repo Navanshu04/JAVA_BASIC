@@ -1,7 +1,6 @@
 import java.awt.*;  
-import java.awt.event.*;  
-/*********************************************/  
-  
+import java.awt.event.*;   
+
 public class MyCalculator extends Frame  
 {  
   
@@ -25,7 +24,7 @@ Label memLabel=new Label(" ",Label.RIGHT);
 final int FRAME_WIDTH=325,FRAME_HEIGHT=325;  
 final int HEIGHT=30, WIDTH=30, H_SPACE=10,V_SPACE=10;  
 final int TOPX=30, TOPY=50;  
-///////////////////////////  
+
 MyCalculator(String frameText)//constructor  
 {  
 super(frameText);  
@@ -39,7 +38,6 @@ add(displayLabel);
 memLabel.setBounds(TOPX,  TOPY+HEIGHT+ V_SPACE,WIDTH, HEIGHT);  
 add(memLabel);  
   
-// set Co-ordinates for Memory Buttons  
 tempX=TOPX;   
 y=TOPY+2*(HEIGHT+V_SPACE);  
 for(int i=0; i<memoryButton.length; i++)  
@@ -92,7 +90,7 @@ setLayout(null);
 setSize(FRAME_WIDTH,FRAME_HEIGHT);  
 setVisible(true);  
 }  
-//////////////////////////////////  
+
 static String getFormattedText(double temp)  
 {  
 String resText=""+temp;  
@@ -100,20 +98,20 @@ if(resText.lastIndexOf(".0")>0)
     resText=resText.substring(0,resText.length()-2);  
 return resText;  
 }  
-////////////////////////////////////////  
+
 public static void main(String []args)  
 {  
 new MyCalculator("Calculator - JavaTpoint");  
 }  
 }  
   
-/*******************************************/  
+
   
 class MyDigitButton extends Button implements ActionListener  
 {  
 MyCalculator cl;  
   
-//////////////////////////////////////////  
+  
 MyDigitButton(int x,int y, int width,int height,String cap, MyCalculator clc)  
 {  
 super(cap);  
@@ -122,13 +120,13 @@ this.cl=clc;
 this.cl.add(this);  
 addActionListener(this);  
 }  
-////////////////////////////////////////////////  
+
 static boolean isInString(String s, char ch)  
 {  
 for(int i=0; i<s.length();i++) if(s.charAt(i)==ch) return true;  
 return false;  
 }  
-/////////////////////////////////////////////////  
+
 public void actionPerformed(ActionEvent ev)  
 {  
 String tempText=((MyDigitButton)ev.getSource()).getLabel();  
@@ -170,7 +168,7 @@ this.cl=clc;
 this.cl.add(this);  
 addActionListener(this);  
 }  
-///////////////////////  
+
 public void actionPerformed(ActionEvent ev)  
 {  
 String opText=((MyOperatorButton)ev.getSource()).getLabel();  
@@ -234,7 +232,7 @@ class MyMemoryButton extends Button implements ActionListener
 {  
 MyCalculator cl;  
   
-/////////////////////////////////  
+  
 MyMemoryButton(int x,int y, int width,int height,String cap, MyCalculator clc)  
 {  
 super(cap);  
@@ -243,7 +241,7 @@ this.cl=clc;
 this.cl.add(this);  
 addActionListener(this);  
 }  
-////////////////////////////////////////////////  
+
 public void actionPerformed(ActionEvent ev)  
 {  
 char memop=((MyMemoryButton)ev.getSource()).getLabel().charAt(1);  
@@ -270,7 +268,7 @@ case '+':
 }//actionPerformed  
 }//class  
   
-/*****************************************/  
+
   
 class MySpecialButton extends Button implements ActionListener  
 {  
@@ -292,7 +290,7 @@ for(int i=0; i<s.length()-1; i++) Res+=s.charAt(i);
 return Res;  
 }  
   
-//////////////////////////////////////////////////////////  
+  
 public void actionPerformed(ActionEvent ev)  
 {  
 String opText=((MySpecialButton)ev.getSource()).getLabel();  
